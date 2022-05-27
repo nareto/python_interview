@@ -7,7 +7,7 @@ def test1():
     text_supplier = TextFileSupplier("src/tests/test1_input.txt")
     tokenizer = Tokenizer(text_supplier)
     tokenized_dict = tokenizer.tokenize()
-    assert tokenized_dict == {"SOME": 1, "TEXT": 1, ".": 1}
+    assert tokenized_dict == {"SOME": 1, "TEXT": 1, ".": 3, "AND": 1, "MORE": 1}
 
 
 def test2():
@@ -16,9 +16,10 @@ def test2():
     tokenized_dict = tokenizer.tokenize()
     assert tokenized_dict == {
         "SOME": 1,
-        "\n": 4,
+        "\n\n": 2,
+        "\n": 1,
         "TEXT": 1,
-        " ON": 1,
+        "ON": 1,
         "MULTIPLE-LINES": 1,
         "!": 1,
     }
