@@ -27,5 +27,4 @@ def split_text(text: str, punct: Set[str]) -> List[str]:
                 out.append(text[word_start_idx:cur_idx].strip(" "))
                 word_start_idx = cur_idx
         cur_state = new_state
-    print(f"split_text returning: {out}")
     return out

@@ -12,7 +12,9 @@ class Tokenizer:
     def tokenize(self) -> Dict:
         text = self.text_supplier.get_text()
         out = {}
-        for word in split_text(text=text, punct=PUNCT):
+        splits = split_text(text=text, punct=PUNCT)
+        # print(f"got splits: {splits}")
+        for word in splits:
             wupper = word.upper()
             if wupper not in out:
                 out[wupper] = 0
