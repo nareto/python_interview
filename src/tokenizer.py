@@ -1,15 +1,20 @@
-from typing import Dict
+from typing import Dict, List, Set
 from src.text_suppliers.text_suppliers import TextSupplier
+from src.common.helpers import multisplit_text
+
+PUNCT = {"!", ".", " "}
 
 
-class Tokenizer():
+class Tokenizer:
     def __init__(self, text_supplier: TextSupplier) -> None:
         self.text_supplier = text_supplier
 
     def tokenize(self) -> Dict:
         text = self.text_supplier.get_text()
-        print("text supplier gave this text:", text)
         out = {}
+        for word in multisplit_text(text=text, punct=PUNCT):
+            wupper = word.upper()
+            if wupper not in out:
+                out[wupper] = 0
+            out[wupper] += 1
         return out
-
-    
