@@ -7,7 +7,8 @@ Different branches contain different exercises.
 The goal of this program is to tokenize text. That is, given an input string like this:
 
 ```txt
-Some text. And .more.```
+Some text. And .more.
+```
 
 it should output a dictionary like this:
 
